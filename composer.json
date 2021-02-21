@@ -1,0 +1,56 @@
+{
+    "name": "jetimob/rdstation-sdk-php-laravel",
+    "description": "",
+    "keywords": ["laravel", "rdstation", "leads"],
+    "type": "library",
+    "require": {
+        "php": "^7.4|8.*",
+        "jetimob/http-php-laravel": "dev-main"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.4",
+        "phpunit/phpunit": "^9.4"
+    },
+    "repositories": {
+        "jetimob/php-http-utils": {
+            "type": "vcs",
+            "url": "git@github.com:jetimob/rdstation-sdk-php-laravel"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alan Weingartner",
+            "email": "hi@alanwgt.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/jetimob/rdstation-sdk-php/issues",
+        "source": "https://github.com/jetimob/rdstation-sdk-php"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jetimob\\RDStation\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jetimob\\RDStation\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jetimob\\RDStation\\RDStationServiceProvider"
+            ],
+            "aliases": {
+                "RDStation": "Jetimob\\RDStation\\Facade\\RDStation"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
