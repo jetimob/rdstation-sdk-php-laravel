@@ -5,12 +5,13 @@ namespace Jetimob\RDStation;
 use Jetimob\Http\Http;
 use Jetimob\Http\OAuth\OAuth;
 use Jetimob\Http\OAuth\OAuthClient;
+use Jetimob\RDStation\Http\RequestWrapper\AuthenticationRequestWrapper;
 use Jetimob\RDStation\Http\RequestWrapper\WebhookRequestWrapper;
 
 /**
  * Class RDStation
  * @package Jetimob\RDStation
- * @see https://developers.rdstation.com/en/overview
+ * @link https://developers.rdstation.com/en/overview
  */
 class RDStation
 {
@@ -41,6 +42,11 @@ class RDStation
     public function webhook(): WebhookRequestWrapper
     {
         return $this->getInstance(WebhookRequestWrapper::class);
+    }
+
+    public function authentication(): AuthenticationRequestWrapper
+    {
+        return $this->getInstance(AuthenticationRequestWrapper::class);
     }
 
     public function getHttpClient(): Http
