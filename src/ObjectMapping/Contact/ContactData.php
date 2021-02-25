@@ -65,7 +65,7 @@ trait ContactData
     /** @var string[] $extra_emails Extra emails of the Contact. */
     protected array $extra_emails;
 
-    /** @var \Jetimob\RDStation\ObjectMapping\Contact\LegalBase[] Legal Bases of the Contact. */
+    /** @var LegalBase[] Legal Bases of the Contact. */
     protected array $legal_bases;
 
     /** @var Company|null $company */
@@ -73,4 +73,9 @@ trait ContactData
 
     /** @var Funnel|null $funnel */
     protected ?Funnel $funnel;
+
+    public function legal_basesItemType(): string
+    {
+        return LegalBase::class;
+    }
 }

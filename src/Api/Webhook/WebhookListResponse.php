@@ -12,8 +12,13 @@ use Jetimob\RDStation\ObjectMapping\Webhook\Webhook;
  */
 class WebhookListResponse extends Response
 {
-    /** @var \Jetimob\RDStation\ObjectMapping\Webhook\Webhook[] $webhooks */
+    /** @var Webhook[] $webhooks */
     protected array $webhooks;
+
+    protected function webhooksItemType(): string
+    {
+        return Webhook::class;
+    }
 
     /**
      * @return Webhook[]
