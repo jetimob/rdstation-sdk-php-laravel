@@ -36,14 +36,6 @@ class Webhook
     /**
      * @return string
      */
-    public function getEventIdentifier(): string
-    {
-        return $this->event_identifier;
-    }
-
-    /**
-     * @return string
-     */
     public function getEntityType(): string
     {
         return $this->entity_type;
