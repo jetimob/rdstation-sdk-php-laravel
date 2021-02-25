@@ -8,7 +8,7 @@ use Jetimob\RDStation\ObjectMapping\Funnel\Funnel;
 /**
  * Class Contact
  * @package Jetimob\RDStation\ObjectMapping\Contact
- * @see https://developers.rdstation.com/en/reference/contacts
+ * @link https://developers.rdstation.com/en/reference/contacts
  */
 class Contact
 {
@@ -20,7 +20,7 @@ class Contact
      */
     public function getUuid(): ?string
     {
-        return $this->uuid;
+        return $this->uuid ?? null;
     }
 
     /**
@@ -28,7 +28,7 @@ class Contact
      */
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     /**
@@ -36,7 +36,7 @@ class Contact
      */
     public function getEmail(): ?string
     {
-        return $this->email;
+        return $this->email ?? null;
     }
 
     /**
@@ -44,7 +44,7 @@ class Contact
      */
     public function getBio(): ?string
     {
-        return $this->bio;
+        return $this->bio ?? null;
     }
 
     /**
@@ -52,7 +52,7 @@ class Contact
      */
     public function getWebsite(): ?string
     {
-        return $this->website;
+        return $this->website ?? null;
     }
 
     /**
@@ -60,7 +60,7 @@ class Contact
      */
     public function getJobTitle(): ?string
     {
-        return $this->job_title;
+        return $this->job_title ?? null;
     }
 
     /**
@@ -68,7 +68,7 @@ class Contact
      */
     public function getPersonalPhone(): ?string
     {
-        return $this->personal_phone;
+        return $this->personal_phone ?? null;
     }
 
     /**
@@ -76,7 +76,7 @@ class Contact
      */
     public function getMobilePhone(): ?string
     {
-        return $this->mobile_phone;
+        return $this->mobile_phone ?? null;
     }
 
     /**
@@ -84,7 +84,7 @@ class Contact
      */
     public function getCity(): ?string
     {
-        return $this->city;
+        return $this->city ?? null;
     }
 
     /**
@@ -92,7 +92,7 @@ class Contact
      */
     public function getState(): ?string
     {
-        return $this->state;
+        return $this->state ?? null;
     }
 
     /**
@@ -100,7 +100,7 @@ class Contact
      */
     public function getCountry(): ?string
     {
-        return $this->country;
+        return $this->country ?? null;
     }
 
     /**
@@ -108,7 +108,7 @@ class Contact
      */
     public function getTwitter(): ?string
     {
-        return $this->twitter;
+        return $this->twitter ?? null;
     }
 
     /**
@@ -116,7 +116,7 @@ class Contact
      */
     public function getFacebook(): ?string
     {
-        return $this->facebook;
+        return $this->facebook ?? null;
     }
 
     /**
@@ -124,7 +124,7 @@ class Contact
      */
     public function getLinkedin(): ?string
     {
-        return $this->linkedin;
+        return $this->linkedin ?? null;
     }
 
     /**
@@ -156,7 +156,7 @@ class Contact
      */
     public function getCompany(): ?Company
     {
-        return $this->company;
+        return $this->company ?? null;
     }
 
     /**
@@ -164,7 +164,7 @@ class Contact
      */
     public function getFunnel(): ?Funnel
     {
-        return $this->funnel;
+        return $this->funnel ?? null;
     }
 
     /**

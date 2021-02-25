@@ -11,25 +11,18 @@ use Jetimob\RDStation\ObjectMapping\Funnel\Funnel;
 /**
  * Class ContactResponse
  * @package Jetimob\RDStation\Api\Contacts
- * @see https://developers.rdstation.com/en/reference/contacts
+ * @link https://developers.rdstation.com/en/reference/contacts
  */
 class ContactResponse extends Response
 {
     use ContactData;
-
-    public function initComplexObjects(): void
-    {
-        $this->tags = $this->data->tags ?? [];
-        $this->extra_emails = $this->data->emails ?? [];
-        $this->legal_bases = LegalBase::deserializeArray($this->data->legal_bases ?? []);
-    }
 
     /**
      * @return string|null
      */
     public function getUuid(): ?string
     {
-        return $this->uuid;
+        return $this->uuid ?? null;
     }
 
     /**
@@ -37,7 +30,7 @@ class ContactResponse extends Response
      */
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     /**
@@ -45,7 +38,7 @@ class ContactResponse extends Response
      */
     public function getEmail(): ?string
     {
-        return $this->email;
+        return $this->email ?? null;
     }
 
     /**
@@ -53,7 +46,7 @@ class ContactResponse extends Response
      */
     public function getBio(): ?string
     {
-        return $this->bio;
+        return $this->bio ?? null;
     }
 
     /**
@@ -61,7 +54,7 @@ class ContactResponse extends Response
      */
     public function getWebsite(): ?string
     {
-        return $this->website;
+        return $this->website ?? null;
     }
 
     /**
@@ -69,7 +62,7 @@ class ContactResponse extends Response
      */
     public function getJobTitle(): ?string
     {
-        return $this->job_title;
+        return $this->job_title ?? null;
     }
 
     /**
@@ -77,7 +70,7 @@ class ContactResponse extends Response
      */
     public function getPersonalPhone(): ?string
     {
-        return $this->personal_phone;
+        return $this->personal_phone ?? null;
     }
 
     /**
@@ -85,7 +78,7 @@ class ContactResponse extends Response
      */
     public function getMobilePhone(): ?string
     {
-        return $this->mobile_phone;
+        return $this->mobile_phone ?? null;
     }
 
     /**
@@ -93,7 +86,7 @@ class ContactResponse extends Response
      */
     public function getCity(): ?string
     {
-        return $this->city;
+        return $this->city ?? null;
     }
 
     /**
@@ -101,7 +94,7 @@ class ContactResponse extends Response
      */
     public function getState(): ?string
     {
-        return $this->state;
+        return $this->state ?? null;
     }
 
     /**
@@ -109,7 +102,7 @@ class ContactResponse extends Response
      */
     public function getCountry(): ?string
     {
-        return $this->country;
+        return $this->country ?? null;
     }
 
     /**
@@ -117,7 +110,7 @@ class ContactResponse extends Response
      */
     public function getTwitter(): ?string
     {
-        return $this->twitter;
+        return $this->twitter ?? null;
     }
 
     /**
@@ -125,7 +118,7 @@ class ContactResponse extends Response
      */
     public function getFacebook(): ?string
     {
-        return $this->facebook;
+        return $this->facebook ?? null;
     }
 
     /**
@@ -133,7 +126,7 @@ class ContactResponse extends Response
      */
     public function getLinkedin(): ?string
     {
-        return $this->linkedin;
+        return $this->linkedin ?? null;
     }
 
     /**
@@ -141,7 +134,7 @@ class ContactResponse extends Response
      */
     public function getTags(): array
     {
-        return $this->tags;
+        return $this->tags ?? [];
     }
 
     /**
@@ -149,7 +142,7 @@ class ContactResponse extends Response
      */
     public function getExtraEmails(): array
     {
-        return $this->extra_emails;
+        return $this->extra_emails ?? [];
     }
 
     /**
@@ -157,7 +150,7 @@ class ContactResponse extends Response
      */
     public function getLegalBases(): array
     {
-        return $this->legal_bases;
+        return $this->legal_bases ?? [];
     }
 
     /**
@@ -165,7 +158,7 @@ class ContactResponse extends Response
      */
     public function getCompany(): ?Company
     {
-        return $this->company;
+        return $this->company ?? null;
     }
 
     /**
@@ -173,6 +166,6 @@ class ContactResponse extends Response
      */
     public function getFunnel(): ?Funnel
     {
-        return $this->funnel;
+        return $this->funnel ?? null;
     }
 }
