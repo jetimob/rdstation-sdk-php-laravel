@@ -25,18 +25,21 @@ class AuthenticationRequestWrapper extends RequestWrapper
     public function revoke(): Response
     {
         $oAuth = $this->http->oAuth();
-        $client = $oAuth->getClient();
-        $accessToken = $oAuth->getCachedAccessToken($client);
+        $accessToken = $oAuth->getCachedAccessToken();
 
         if (is_null($accessToken) || is_null($accessToken->getRefreshToken())) {
             throw new RuntimeException('There is no access token to be revoked');
         }
 
-        return $this->http->send(new Request('post', '/auth/revoke'), [
+        $response = $this->http->send(new Request('post', '/auth/revoke'), [
             RequestOptions::JSON => [
                 'token' => $accessToken->getRefreshToken(),
                 'token_type_hint' => 'refresh_token',
             ],
         ]);
+
+        $oAuth->forgetAccessToken();
+
+        return $response;
     }
 }
