@@ -7,7 +7,7 @@ use Jetimob\Http\Traits\Serializable;
 /**
  * Class ErrorMessage
  * @package Jetimob\RDStation\ObjectMapping
- * @see https://developers.rdstation.com/en/error-states
+ * @link https://developers.rdstation.com/en/error-states
  */
 class ErrorMessage
 {

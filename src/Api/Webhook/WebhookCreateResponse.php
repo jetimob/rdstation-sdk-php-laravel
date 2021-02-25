@@ -8,7 +8,7 @@ use Jetimob\RDStation\ObjectMapping\Webhook\WebhookBaseTrait;
 /**
  * Class WebhookCreateResponse
  * @package Jetimob\RDStation\Api\Webhook
- * @see https://developers.rdstation.com/en/reference/webhooks
+ * @link https://developers.rdstation.com/en/reference/webhooks
  */
 class WebhookCreateResponse extends Response
 {

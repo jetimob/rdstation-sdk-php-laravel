@@ -12,9 +12,9 @@
         "phpunit/phpunit": "^9.4"
     },
     "repositories": {
-        "jetimob/php-http-utils": {
+        "jetimob/http-php-laravel": {
             "type": "vcs",
-            "url": "git@github.com:jetimob/rdstation-sdk-php-laravel"
+            "url": "git@github.com:jetimob/http-php-laravel"
         }
     },
     "license": "MIT",

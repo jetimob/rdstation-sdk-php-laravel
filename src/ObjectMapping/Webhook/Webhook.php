@@ -7,7 +7,7 @@ use Jetimob\Http\Traits\Serializable;
 /**
  * Class Webhook
  * @package Jetimob\RDStation\ObjectMapping\Webhook
- * @see https://developers.rdstation.com/en/reference/webhooks
+ * @link https://developers.rdstation.com/en/reference/webhooks
  */
 class Webhook
 {

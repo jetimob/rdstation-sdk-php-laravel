@@ -7,7 +7,7 @@ use Jetimob\Http\Response;
 /**
  * Class WebhookDeleteResponse
  * @package Jetimob\RDStation\Api\Webhook
- * @see https://developers.rdstation.com/en/reference/webhooks
+ * @link https://developers.rdstation.com/en/reference/webhooks
  */
 class WebhookDeleteResponse extends Response
 {

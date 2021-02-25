@@ -7,7 +7,7 @@ use Jetimob\Http\Traits\Serializable;
 /**
  * Class Funnel
  * @package Jetimob\RDStation\ObjectMapping\Funnel
- * @see https://developers.rdstation.com/en/reference/contacts/funnels
+ * @link https://developers.rdstation.com/en/reference/contacts/funnels
  */
 class Funnel
 {

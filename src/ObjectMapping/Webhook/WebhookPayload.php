@@ -8,7 +8,7 @@ use Jetimob\RDStation\ObjectMapping\Contact\Contact;
 /**
  * Class WebhookPayload
  * @package Jetimob\RDStation\ObjectMapping\Webhook
- * @see https://developers.rdstation.com/en/reference/webhooks#webhooks-request
+ * @link https://developers.rdstation.com/en/reference/webhooks#webhooks-request
  */
 class WebhookPayload
 {

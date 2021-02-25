@@ -13,7 +13,7 @@ use Jetimob\RDStation\ObjectMapping\Funnel\Funnel;
  *       Boolean	Always true or false will be returned
  *
  * @package Jetimob\RDStation\ObjectMapping\Contact
- * @see https://developers.rdstation.com/en/reference/contacts
+ * @link https://developers.rdstation.com/en/reference/contacts
  */
 trait ContactData
 {
