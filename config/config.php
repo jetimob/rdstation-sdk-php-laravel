@@ -32,7 +32,7 @@ return [
         ],
 
         // Repository responsible for storing and retrieving access tokens.
-        'oauth_access_token_repository' => \Illuminate\Contracts\Cache\Repository::class,
+        'oauth_access_token_repository' => \Jetimob\Http\OAuth\Storage\CacheRepository::class,
 
         'oauth_token_cache_key_resolver' => \Jetimob\Http\OAuth\Storage\AccessTokenCacheKeyResolver::class,
 
