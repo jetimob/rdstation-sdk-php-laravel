@@ -3,8 +3,8 @@
 namespace Jetimob\RDStation;
 
 use Jetimob\Http\Http;
-use Jetimob\Http\OAuth\OAuth;
-use Jetimob\Http\OAuth\OAuthClient;
+use Jetimob\Http\Authorization\OAuth\OAuth;
+use Jetimob\Http\Authorization\OAuth\OAuthClient;
 use Jetimob\RDStation\Http\RequestWrapper\AuthenticationRequestWrapper;
 use Jetimob\RDStation\Http\RequestWrapper\WebhookRequestWrapper;
 

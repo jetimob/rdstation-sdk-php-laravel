@@ -32,17 +32,17 @@ return [
         ],
 
         // Repository responsible for storing and retrieving access tokens.
-        'oauth_access_token_repository' => \Jetimob\Http\OAuth\Storage\CacheRepository::class,
+        'oauth_access_token_repository' => \Jetimob\Http\Authorization\OAuth\Storage\CacheRepository::class,
 
-        'oauth_token_cache_key_resolver' => \Jetimob\Http\OAuth\Storage\AccessTokenCacheKeyResolver::class,
+        'oauth_token_cache_key_resolver' => \Jetimob\Http\Authorization\OAuth\Storage\AccessTokenCacheKeyResolver::class,
 
-        'oauth_client_resolver' => \Jetimob\Http\OAuth\ClientProviders\OAuthClientResolver::class,
+        'oauth_client_resolver' => \Jetimob\Http\Authorization\OAuth\ClientProviders\OAuthClientResolver::class,
 
         'oauth_access_token_resolver' => [
-            \Jetimob\Http\OAuth\OAuthFlow::CLIENT_CREDENTIALS =>
-                \Jetimob\Http\OAuth\TokenResolvers\OAuthClientCredentialsTokenResolver::class,
-            \Jetimob\Http\OAuth\OAuthFlow::AUTHORIZATION_CODE =>
-                \Jetimob\Http\OAuth\TokenResolvers\OAuthAuthorizationCodeTokenResolver::class,
+            \Jetimob\Http\Authorization\OAuth\OAuthFlow::CLIENT_CREDENTIALS =>
+                \Jetimob\Http\Authorization\OAuth\TokenResolvers\OAuthClientCredentialsTokenResolver::class,
+            \Jetimob\Http\Authorization\OAuth\OAuthFlow::AUTHORIZATION_CODE =>
+                \Jetimob\Http\Authorization\OAuth\TokenResolvers\OAuthAuthorizationCodeTokenResolver::class,
         ],
 
     ],

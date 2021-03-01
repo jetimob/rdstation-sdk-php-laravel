@@ -4,14 +4,14 @@ namespace Jetimob\RDStation\Tests;
 
 //use Jetimob\Http\Cache\CacheRepository;
 //use Jetimob\Http\Facade\JHttp;
-//use Jetimob\Http\OAuth\Requests\OAuthAccessTokenResponse;
+//use Jetimob\Http\Authorization\OAuth\Requests\OAuthAccessTokenResponse;
 //use Jetimob\Http\Tests\Feature\OAuth\Requests\RDStationResponseError;
 
-use Jetimob\Http\OAuth\AccessToken;
-use Jetimob\Http\OAuth\OAuthClient;
-use Jetimob\RDStation\Facade\Http;
+use Jetimob\Http\Authorization\OAuth\AccessToken;
+use Jetimob\Http\Authorization\OAuth\OAuthClient;
+use Jetimob\Http\Facades\Http;
 
-abstract class AuthzBaseCase extends TestCase
+abstract class AuthzBase extends TestCase
 {
 //    private CacheRepository $cacheRepository;
 //    protected OAuthAccessTokenResponse $accessToken;
@@ -31,10 +31,10 @@ abstract class AuthzBaseCase extends TestCase
         ]);
 
         $this->client = new OAuthClient(
-            env('OAUTH_CLIENT_ID'),
-            env('OAUTH_CLIENT_SECRET'),
-            env('OAUTH_TOKEN_URI'),
-            env('OAUTH_AUTHORIZATION_URI'),
+            env('RDSTATION_OAUTH_CLIENT_ID'),
+            env('RDSTATION_OAUTH_CLIENT_SECRET'),
+            env('RDSTATION_OAUTH_TOKEN_URI'),
+            env('RDSTATION_OAUTH_AUTHORIZATION_URI'),
         );
 
         Http::oAuth()->storeAccessToken($this->accessToken);

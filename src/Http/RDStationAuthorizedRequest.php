@@ -2,7 +2,7 @@
 
 namespace Jetimob\RDStation\Http;
 
-use Jetimob\Http\OAuth\OAuthFlow;
+use Jetimob\Http\Authorization\OAuth\OAuthFlow;
 
 class RDStationAuthorizedRequest extends RDStationRequest
 {

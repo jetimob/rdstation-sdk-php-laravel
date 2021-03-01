@@ -5,7 +5,6 @@ namespace Jetimob\RDStation\Http\RequestWrapper;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Contracts\Container\BindingResolutionException;
-use Jetimob\Http\Request;
 use Jetimob\RDStation\Http\RDStationAuthorizedRequest;
 use Psr\SimpleCache\InvalidArgumentException;
 use RuntimeException;
