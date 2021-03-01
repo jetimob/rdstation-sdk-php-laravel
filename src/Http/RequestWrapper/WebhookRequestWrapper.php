@@ -62,9 +62,8 @@ class WebhookRequestWrapper extends RequestWrapper
 
     public function delete(string $uuid)
     {
-        return $this->http->sendExpectingResponseClass(
+        return $this->http->send(
             new RDStationAuthorizedRequest('delete', self::WEBHOOK_ENDPOINT_PATH . '/' . $uuid),
-            WebhookDeleteResponse::class
         );
     }
 }
