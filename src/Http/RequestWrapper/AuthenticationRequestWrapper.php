@@ -33,8 +33,8 @@ class AuthenticationRequestWrapper extends RequestWrapper
 
         $response = $this->http->send(new Request('post', '/auth/revoke'), [
             RequestOptions::JSON => [
-                'token' => $accessToken->getRefreshToken(),
-                'token_type_hint' => 'refresh_token',
+                'token' => $accessToken->getAccessToken(),
+                'token_type_hint' => 'access_token',
             ],
         ]);
 
