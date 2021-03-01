@@ -36,7 +36,7 @@ return [
 
         'oauth_token_cache_key_resolver' => \Jetimob\Http\OAuth\Storage\AccessTokenCacheKeyResolver::class,
 
-        'oauth_client_provider' => \Jetimob\Http\OAuth\ClientProviders\OAuthClientResolver::class,
+        'oauth_client_resolver' => \Jetimob\Http\OAuth\ClientProviders\OAuthClientResolver::class,
 
         'oauth_access_token_resolver' => [
             \Jetimob\Http\OAuth\OAuthFlow::CLIENT_CREDENTIALS =>

@@ -244,12 +244,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:jetimob/http-php-laravel.git",
-                "reference": "c1fe5c7f8ee9224da04de833b8b626b23c3bf544"
+                "reference": "9635fe1868ca279044d050a0898f28b6d6ae4678"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jetimob/http-php-laravel/zipball/c1fe5c7f8ee9224da04de833b8b626b23c3bf544",
-                "reference": "c1fe5c7f8ee9224da04de833b8b626b23c3bf544",
+                "url": "https://api.github.com/repos/jetimob/http-php-laravel/zipball/9635fe1868ca279044d050a0898f28b6d6ae4678",
+                "reference": "9635fe1868ca279044d050a0898f28b6d6ae4678",
                 "shasum": ""
             },
             "require": {
@@ -304,7 +304,7 @@
                 "issues": "https://github.com/jetimob/http-php-laravel/issues",
                 "source": "https://github.com/jetimob/http-php-laravel"
             },
-            "time": "2021-02-26T13:38:49+00:00"
+            "time": "2021-03-01T11:51:20+00:00"
         },
         {
             "name": "psr/http-client",
