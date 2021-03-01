@@ -33,7 +33,7 @@ class AuthenticationRequestWrapper extends RequestWrapper
         }
 
         $response = $this->http->send(new RDStationAuthorizedRequest('post', '/auth/revoke'), [
-            RequestOptions::JSON => [
+            RequestOptions::FORM_PARAMS => [
                 'token' => $accessToken->getRefreshToken(),
                 'token_type_hint' => 'refresh_token',
             ],
