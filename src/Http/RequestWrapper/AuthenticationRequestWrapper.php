@@ -6,6 +6,7 @@ use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Jetimob\Http\Request;
+use Jetimob\RDStation\Http\RDStationAuthorizedRequest;
 use Psr\SimpleCache\InvalidArgumentException;
 use RuntimeException;
 
@@ -31,10 +32,10 @@ class AuthenticationRequestWrapper extends RequestWrapper
             throw new RuntimeException('There is no access token to be revoked');
         }
 
-        $response = $this->http->send(new Request('post', '/auth/revoke'), [
+        $response = $this->http->send(new RDStationAuthorizedRequest('post', '/auth/revoke'), [
             RequestOptions::JSON => [
-                'token' => $accessToken->getAccessToken(),
-                'token_type_hint' => 'access_token',
+                'token' => $accessToken->getRefreshToken(),
+                'token_type_hint' => 'refresh_token',
             ],
         ]);
 
