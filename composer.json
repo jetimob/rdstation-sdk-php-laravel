@@ -5,17 +5,11 @@
     "type": "library",
     "require": {
         "php": "^7.4|8.*",
-        "jetimob/http-php-laravel": "dev-main"
+        "jetimob/http-php-laravel": "v1.0.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.4",
-        "phpunit/phpunit": "^9.4"
-    },
-    "repositories": {
-        "jetimob/http-php-laravel": {
-            "type": "vcs",
-            "url": "git@github.com:jetimob/http-php-laravel"
-        }
+        "orchestra/testbench": "^6.17",
+        "phpunit/phpunit": "^9.5"
     },
     "license": "MIT",
     "authors": [
@@ -51,6 +45,6 @@
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
