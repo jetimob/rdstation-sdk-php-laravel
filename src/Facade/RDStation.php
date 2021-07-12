@@ -13,6 +13,6 @@ class RDStation extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'rdstation';
+        return 'jetimob.rdstation';
     }
 }

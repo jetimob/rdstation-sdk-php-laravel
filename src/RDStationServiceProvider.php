@@ -43,7 +43,7 @@ class RDStationServiceProvider extends ServiceProvider
             ]);
         }
 
-        $this->app->singleton('rdstation', function () {
+        $this->app->singleton('jetimob.rdstation', function () {
             return new RDStation(config('rdstation.http'));
         });
     }
