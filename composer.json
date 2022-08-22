@@ -4,11 +4,11 @@
     "keywords": ["laravel", "rdstation", "leads"],
     "type": "library",
     "require": {
-        "php": "^7.4|8.*",
-        "jetimob/http-php-laravel": "^v1.4.0"
+        "php": "^8.0",
+        "jetimob/http-php-laravel": "^2"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.17",
+        "orchestra/testbench": "^7.6.1",
         "phpunit/phpunit": "^9.5"
     },
     "license": "MIT",
