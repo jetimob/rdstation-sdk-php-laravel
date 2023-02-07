@@ -2,16 +2,19 @@
 
 namespace Jetimob\RDStation;
 
+use Jetimob\Http\Authorization\OAuth\AccessToken;
+use Jetimob\Http\Authorization\OAuth\OAuthFlow;
 use Jetimob\Http\Http;
 use Jetimob\Http\Authorization\OAuth\OAuth;
 use Jetimob\Http\Authorization\OAuth\OAuthClient;
 use Jetimob\RDStation\Http\RequestWrapper\AuthenticationRequestWrapper;
+use Jetimob\RDStation\Http\RequestWrapper\CustomFieldsRequestWrapper;
 use Jetimob\RDStation\Http\RequestWrapper\WebhookRequestWrapper;
 
 /**
  * Class RDStation
  * @package Jetimob\RDStation
- * @link https://developers.rdstation.com/en/overview
+ * @link https://developers.rdstation.com/reference/introducao-rdsm?lng=pt-BR
  */
 class RDStation
 {
@@ -26,7 +29,7 @@ class RDStation
     public function __construct(array $config = [])
     {
         $this->config = $config;
-        $this->http = new Http($config);
+        $this->http = new Http($config['http'] ?? []);
     }
 
     private function getInstance(string $class)
@@ -42,6 +45,11 @@ class RDStation
     public function webhook(): WebhookRequestWrapper
     {
         return $this->getInstance(WebhookRequestWrapper::class);
+    }
+
+    public function customFields(): CustomFieldsRequestWrapper
+    {
+        return $this->getInstance(CustomFieldsRequestWrapper::class);
     }
 
     public function authentication(): AuthenticationRequestWrapper
@@ -64,9 +72,13 @@ class RDStation
         return $this->getOAuthHandler()->getClient();
     }
 
-    public function handleAuthorizationCodeExchange(string $code)
+    public function handleAuthorizationCodeExchange(string $code): AccessToken
     {
-        return $this->getOAuthHandler()->handleAuthorizationCodeExchange($code);
+        return $this->getOAuthHandler()->getAccessToken(
+            app(config('rdstation.http.oauth_access_token_resolver')[OAuthFlow::AUTHORIZATION_CODE]),
+            $code,
+            $this->getOAuthClient(),
+        );
     }
 
     /**

@@ -5,7 +5,7 @@
     "type": "library",
     "require": {
         "php": "^8.0",
-        "jetimob/http-php-laravel": "^2"
+        "jetimob/http-php-laravel": "^2.2"
     },
     "require-dev": {
         "orchestra/testbench": "^7.6.1",

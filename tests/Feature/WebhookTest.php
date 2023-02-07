@@ -9,7 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 class WebhookTest extends AuthzBase
 {
     /** @test */
-    public function list_webhooks_without_authorization_code_should_fail(): void
+    public function should_list_webhooks(): void
     {
         /** @var ResponseInterface $response */
         $response = RDStation::webhook()->list();

@@ -11,9 +11,26 @@ use Jetimob\RDStation\Console\InstallCommand;
  */
 class RDStationServiceProvider extends ServiceProvider
 {
-    private function getConfigPath(): string
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+    public function boot(): void
     {
-        return __DIR__ . '/../config/config.php';
+        $src = realpath($raw = __DIR__ . '/../config/rdstation.php') ?: $raw;
+
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                $src => config_path('rdstation.php')
+            ], 'config');
+
+            $this->commands([
+                InstallCommand::class,
+            ]);
+        }
+
+        $this->mergeConfigFrom($src, 'rdstation');
     }
 
     /**
@@ -23,28 +40,20 @@ class RDStationServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom($this->getConfigPath(), 'rdstation');
+        $this->app->singleton('jetimob.rdstation', function ($app) {
+            return new RDStation($app['config']['rdstation']);
+        });
+
+        $this->app->alias('jetimob.rdstation', RDStation::class);
     }
 
     /**
-     * Bootstrap the application services.
+     * Get the services provided by the provider.
      *
-     * @return void
+     * @return string[]
      */
-    public function boot(): void
+    public function provides()
     {
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                $this->getConfigPath() => config_path('rdstation.php'),
-            ], 'config');
-
-            $this->commands([
-                InstallCommand::class,
-            ]);
-        }
-
-        $this->app->singleton('jetimob.rdstation', function () {
-            return new RDStation(config('rdstation.http'));
-        });
+        return ['jetimob.rdstation'];
     }
 }

@@ -42,8 +42,7 @@ return [
             \Jetimob\Http\Authorization\OAuth\OAuthFlow::CLIENT_CREDENTIALS =>
                 \Jetimob\Http\Authorization\OAuth\TokenResolvers\OAuthClientCredentialsTokenResolver::class,
             \Jetimob\Http\Authorization\OAuth\OAuthFlow::AUTHORIZATION_CODE =>
-                \Jetimob\Http\Authorization\OAuth\TokenResolvers\OAuthAuthorizationCodeTokenResolver::class,
+                \Jetimob\RDStation\Authorization\OAuth\TokenResolvers\RDStationTokenResolver::class,
         ],
-
     ],
 ];
