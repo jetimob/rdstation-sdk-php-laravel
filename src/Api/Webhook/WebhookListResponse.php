@@ -3,13 +3,8 @@
 namespace Jetimob\RDStation\Api\Webhook;
 
 use Jetimob\Http\Response;
-use Jetimob\RDStation\ObjectMapping\Webhook\Webhook;
+use Jetimob\RDStation\Data\Webhook\Webhook;
 
-/**
- * Class WebhookListResponse
- * @package Jetimob\RDStation\Api\Webhook
- * @link https://developers.rdstation.com/en/reference/webhooks
- */
 class WebhookListResponse extends Response
 {
     /** @var Webhook[] $webhooks */

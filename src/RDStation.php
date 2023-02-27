@@ -2,98 +2,44 @@
 
 namespace Jetimob\RDStation;
 
-use Jetimob\Http\Authorization\OAuth\AccessToken;
-use Jetimob\Http\Authorization\OAuth\OAuthFlow;
+use Jetimob\Http\Contracts\HttpProviderContract;
 use Jetimob\Http\Http;
-use Jetimob\Http\Authorization\OAuth\OAuth;
-use Jetimob\Http\Authorization\OAuth\OAuthClient;
-use Jetimob\RDStation\Http\RequestWrapper\AuthenticationRequestWrapper;
-use Jetimob\RDStation\Http\RequestWrapper\CustomFieldsRequestWrapper;
-use Jetimob\RDStation\Http\RequestWrapper\WebhookRequestWrapper;
+use Jetimob\RDStation\Api\CustomFields\CustomFieldsApi;
+use Jetimob\RDStation\Api\Webhook\WebhookApi;
+use RuntimeException;
 
 /**
- * Class RDStation
- * @package Jetimob\RDStation
- * @link https://developers.rdstation.com/reference/introducao-rdsm?lng=pt-BR
+ * @method CustomFieldsApi customFields()
+ * @method WebhookApi webhook()
  */
-class RDStation
+class RDStation implements HttpProviderContract
 {
-    private Http $http;
-    private array $config;
-    private array $instanceCache = [];
+    protected Http $client;
+    protected array $config;
 
-    /**
-     * RDStation constructor.
-     * @param array $config
-     */
     public function __construct(array $config = [])
     {
+        $this->client = new Http($config['http'] ?? []);
         $this->config = $config;
-        $this->http = new Http($config['http'] ?? []);
     }
 
-    private function getInstance(string $class)
+    public function getHttpInstance(): Http
     {
-        if (isset($this->instanceCache[$class])) {
-            return $this->instanceCache[$class];
+        return $this->client;
+    }
+
+    public function getConfig(): array
+    {
+        return $this->config ?? [];
+    }
+
+    public function __call(string $name, array $arguments)
+    {
+
+        if (!($apiImpl = $this->config['api_impl'] ?? null) || !array_key_exists($name, $apiImpl)) {
+            throw new RuntimeException("O endpoint '$name' não não existe");
         }
 
-        $this->instanceCache[$class] = new $class($this->getHttpClient());
-        return $this->instanceCache[$class];
-    }
-
-    public function webhook(): WebhookRequestWrapper
-    {
-        return $this->getInstance(WebhookRequestWrapper::class);
-    }
-
-    public function customFields(): CustomFieldsRequestWrapper
-    {
-        return $this->getInstance(CustomFieldsRequestWrapper::class);
-    }
-
-    public function authentication(): AuthenticationRequestWrapper
-    {
-        return $this->getInstance(AuthenticationRequestWrapper::class);
-    }
-
-    public function getHttpClient(): Http
-    {
-        return $this->http;
-    }
-
-    public function getOAuthHandler(): OAuth
-    {
-        return $this->getHttpClient()->oAuth();
-    }
-
-    public function getOAuthClient(): OAuthClient
-    {
-        return $this->getOAuthHandler()->getClient();
-    }
-
-    public function handleAuthorizationCodeExchange(string $code): AccessToken
-    {
-        return $this->getOAuthHandler()->getAccessToken(
-            app(config('rdstation.http.oauth_access_token_resolver')[OAuthFlow::AUTHORIZATION_CODE]),
-            $code,
-            $this->getOAuthClient(),
-        );
-    }
-
-    /**
-     * Returns the configuration value from a given key. Default value is returned if the key is not found.
-     * @param string $key
-     * @param mixed|null $default
-     * @return mixed|null
-     */
-    public function getConfig(string $key, $default = null)
-    {
-        return $this->config[$key] ?? $default;
-    }
-
-    public function config(): array
-    {
-        return $this->config;
+        return new $apiImpl[$name]($this);
     }
 }

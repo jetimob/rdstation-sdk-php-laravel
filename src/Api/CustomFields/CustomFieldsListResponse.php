@@ -3,9 +3,8 @@
 namespace Jetimob\RDStation\Api\CustomFields;
 
 use Jetimob\Http\Response;
-use Jetimob\RDStation\ObjectMapping\CustomFields\CustomField;
+use Jetimob\RDStation\Data\CustomFields\CustomField;
 
-/** @link https://developers.rdstation.com/reference/get_platform-contacts-fields */
 class CustomFieldsListResponse extends Response
 {
     protected array $fields;
@@ -19,5 +18,13 @@ class CustomFieldsListResponse extends Response
     public function getFields(): array
     {
         return $this->fields;
+    }
+
+    /** @return CustomField[] */
+    public function getUserDefinedFields(): array
+    {
+        return array_filter($this->fields, static function (CustomField $field) {
+            return $field->isCustomField();
+        });
     }
 }

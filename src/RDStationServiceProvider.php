@@ -3,20 +3,17 @@
 namespace Jetimob\RDStation;
 
 use Illuminate\Support\ServiceProvider;
-use Jetimob\RDStation\Console\InstallCommand;
+use Jetimob\RDStation\Console\HandleAuthorizationCodeExchange;
+use Jetimob\RDStation\Console\InstallRDStationPackage;
 
-/**
- * Class RDStationServiceProvider
- * @package Jetimob\RDStation
- */
 class RDStationServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
+     * Boot the service provider.
      *
      * @return void
      */
-    public function boot(): void
+    public function boot()
     {
         $src = realpath($raw = __DIR__ . '/../config/rdstation.php') ?: $raw;
 
@@ -26,7 +23,8 @@ class RDStationServiceProvider extends ServiceProvider
             ], 'config');
 
             $this->commands([
-                InstallCommand::class,
+                InstallRDStationPackage::class,
+                HandleAuthorizationCodeExchange::class,
             ]);
         }
 
@@ -38,10 +36,10 @@ class RDStationServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register(): void
+    public function register()
     {
         $this->app->singleton('jetimob.rdstation', function ($app) {
-            return new RDStation($app['config']['rdstation']);
+            return new RDStation($app['config']['rdstation'] ?? []);
         });
 
         $this->app->alias('jetimob.rdstation', RDStation::class);
@@ -54,6 +52,8 @@ class RDStationServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['jetimob.rdstation'];
+        return [
+            'jetimob.rdstation',
+        ];
     }
 }
