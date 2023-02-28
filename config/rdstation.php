@@ -164,5 +164,6 @@ return [
     'api_impl' => [
         'webhook' => \Jetimob\RDStation\Api\Webhook\WebhookApi::class,
         'customFields' => \Jetimob\RDStation\Api\CustomFields\CustomFieldsApi::class,
+        'auth' => \Jetimob\RDStation\Api\Auth\AuthApi::class,
     ],
 ];

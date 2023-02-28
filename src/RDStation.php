@@ -4,6 +4,7 @@ namespace Jetimob\RDStation;
 
 use Jetimob\Http\Contracts\HttpProviderContract;
 use Jetimob\Http\Http;
+use Jetimob\RDStation\Api\Auth\AuthApi;
 use Jetimob\RDStation\Api\CustomFields\CustomFieldsApi;
 use Jetimob\RDStation\Api\Webhook\WebhookApi;
 use RuntimeException;
@@ -11,6 +12,7 @@ use RuntimeException;
 /**
  * @method CustomFieldsApi customFields()
  * @method WebhookApi webhook()
+ * @method AuthApi auth()
  */
 class RDStation implements HttpProviderContract
 {
