@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/jetimob/rdstation-sdk-php-laravel/compare/v3.0.0...v3.1.0) (2023-02-28)
+
+
+### Features
+
+* adiciona revogação do access token ([b4f98d6](https://github.com/jetimob/rdstation-sdk-php-laravel/commit/b4f98d678748efdadb29b7660646a68d79e9008f))
+
 ## [3.0.0](https://github.com/jetimob/rdstation-sdk-php-laravel/compare/v2.1.0...v3.0.0) (2023-02-27)
 
 
