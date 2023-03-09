@@ -31,7 +31,7 @@ Este comando irá criar o arquivo de configuração `rdstation.php` no diretóri
 
 ## Uso
 
-Sempre que for chamar qualquer api do pacote *rdstation-sdk-php-laravel*, utilize o namespace `Jetimob\RDStation\Facades\Juno`
+Sempre que for chamar qualquer api do pacote *rdstation-sdk-php-laravel*, utilize o namespace `Jetimob\RDStation\Facades\RDStation`
 ou, simplesmente, `RDStation`. O namespace `RDStation` é registrado automaticamente pelo **Laravel**, ou seja, a importação pode
 ser feita apenas com `use RDStation;` no topo de um arquivo.
 
