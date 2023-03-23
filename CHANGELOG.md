@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/jetimob/rdstation-sdk-php-laravel/compare/v3.1.0...v3.1.1) (2023-03-23)
+
+
+### Bug Fixes
+
+* envia o client_id ao requisitar um novo access_token a partir de um refresh_token ([ef5b8ee](https://github.com/jetimob/rdstation-sdk-php-laravel/commit/ef5b8eed55ef7f37df69b1c686af2a4e8497b3b8))
+
 ## [3.1.0](https://github.com/jetimob/rdstation-sdk-php-laravel/compare/v3.0.0...v3.1.0) (2023-02-28)
 
 
