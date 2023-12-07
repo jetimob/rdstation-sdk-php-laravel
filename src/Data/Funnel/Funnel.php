@@ -17,8 +17,8 @@ class Funnel
     /** @var bool It indicates whether the contact is an opportunity or not in the funnel. */
     protected bool $opportunity;
 
-    /** @var string The email of the user responsible for the contact. */
-    protected string $contact_owner_email;
+    /** @var string|null The email of the user responsible for the contact. */
+    protected ?string $contact_owner_email;
 
     /** @var int The contact fit score in the current funnel. */
     protected int $fit;
@@ -54,9 +54,9 @@ class Funnel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getContactOwnerEmail(): string
+    public function getContactOwnerEmail(): ?string
     {
         return $this->contact_owner_email;
     }
