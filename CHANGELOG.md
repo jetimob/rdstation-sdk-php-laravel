@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.3](https://github.com/jetimob/rdstation-sdk-php-laravel/compare/v3.1.2...v3.1.3) (2023-12-15)
+
+
+### Bug Fixes
+
+* permite que $contract_owner_email seja null ([74da48f](https://github.com/jetimob/rdstation-sdk-php-laravel/commit/74da48fd83949ee968ae99574ba3b57e7887e04c))
+
 ### [3.1.2](https://github.com/jetimob/rdstation-sdk-php-laravel/compare/v3.1.1...v3.1.2) (2023-03-31)
 
 
